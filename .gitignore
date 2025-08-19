@@ -1,0 +1,56 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas de PyCharm / IntelliJ
+.idea/
+.vscode/
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Archivos de datos grandes
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.parquet
+*.feather
+*.h5
+*.sqlite
+*.db
+*.zip
+*.tar
+*.gz
+
+# Modelos y resultados pesados
+*.pkl
+*.joblib
+*.hdf5
+*.pt
+*.pth
+*.onnx
+
+# Logs y salidas
+*.log
+*.out
+*.err
+
+# Carpetas de resultados experimentales
+outputs/
+results/
+models/
+checkpoints/
+data/
