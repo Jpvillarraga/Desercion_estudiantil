@@ -24,8 +24,6 @@ __pycache__/
 # Archivos de datos grandes
 *.csv
 *.tsv
-*.xls
-*.xlsx
 *.parquet
 *.feather
 *.h5
