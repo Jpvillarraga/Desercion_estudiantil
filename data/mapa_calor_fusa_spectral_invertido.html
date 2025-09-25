@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d8ba4da8a744d011924cf736076de27d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 220px;
+    height: auto;
+    background-color: white;
+    border:2px solid grey;
+    z-index:9999;
+    font-size:12px;
+    padding: 10px;
+">
+<b>Comunas y Habitantes</b><br>
+Municipios Aledaños: 164<br>Comuna Sur Occidental: 136<br>Comuna Oriental: 126<br>Comuna Norte: 112<br>Comuna Centro: 94<br>Comuna Occidental: 93<br>Comuna Sur Oriental: 72<br>Bogota: 19<br>Sin agrupar: 19<br></div>
+    
+            <div class="folium-map" id="map_d8ba4da8a744d011924cf736076de27d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d8ba4da8a744d011924cf736076de27d = L.map(
+                "map_d8ba4da8a744d011924cf736076de27d",
+                {
+                    center: [4.34, -74.38],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_887672bb200733b05a13dbdebbce27dd = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_887672bb200733b05a13dbdebbce27dd.addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var choropleth_95d9e63db38640726dd0fd904edd30c7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+        function geo_json_f09402fd94c4cc5ca4224e80619790da_styler(feature) {
+            switch(feature.id) {
+                case "0": 
+                    return {"color": "black", "fillColor": "#fdae61", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1};
+                case "1": 
+                    return {"color": "black", "fillColor": "#2b83ba", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1};
+                case "2": case "5": 
+                    return {"color": "black", "fillColor": "#d7191c", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1};
+                default:
+                    return {"color": "black", "fillColor": "#ffffbf", "fillOpacity": 0.7, "opacity": 0.2, "weight": 1};
+            }
+        }
+
+        function geo_json_f09402fd94c4cc5ca4224e80619790da_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_f09402fd94c4cc5ca4224e80619790da = L.geoJson(null, {
+                onEachFeature: geo_json_f09402fd94c4cc5ca4224e80619790da_onEachFeature,
+            
+                style: geo_json_f09402fd94c4cc5ca4224e80619790da_styler,
+            ...{
+}
+        });
+
+        function geo_json_f09402fd94c4cc5ca4224e80619790da_add (data) {
+            geo_json_f09402fd94c4cc5ca4224e80619790da
+                .addData(data);
+        }
+            geo_json_f09402fd94c4cc5ca4224e80619790da_add({"bbox": [-74.41862156890129, 4.321295630266249, -74.35006695085524, 4.359604961521541], "features": [{"bbox": [-74.37357759983668, 4.34556751223154, -74.35490874787331, 4.357172898217016], "geometry": {"coordinates": [[[-74.37357759983668, 4.352112971920889], [-74.37283270798785, 4.34556751223154], [-74.36040232525916, 4.346913746173513], [-74.35490874787331, 4.350859590426111], [-74.35718997916054, 4.357172898217016], [-74.37357759983668, 4.352112971920889]]], "type": "Polygon"}, "id": "0", "properties": {"comuna": "Comuna Norte", "nombre": "Comuna Norte", "personas": 112}, "type": "Feature"}, {"bbox": [-74.37088070131847, 4.321295630266249, -74.35314578159127, 4.3396974868599045], "geometry": {"coordinates": [[[-74.36616422000448, 4.3396974868599045], [-74.37088070131847, 4.337516525814479], [-74.37047045678024, 4.329269327941859], [-74.36447269675584, 4.321295630266249], [-74.35314578159127, 4.3262548331023964], [-74.35975674395245, 4.332847675184681], [-74.36616422000448, 4.3396974868599045]]], "type": "Polygon"}, "id": "1", "properties": {"comuna": "Comuna Sur Oriental", "nombre": "Comuna Sur Oriental", "personas": 72}, "type": "Feature"}, {"bbox": [-74.3661294015505, 4.332708535959995, -74.35006695085524, 4.3508131688485605], "geometry": {"coordinates": [[[-74.36035576951845, 4.346728058876295], [-74.35965815361334, 4.343216545807351], [-74.3661294015505, 4.339734884415307], [-74.35961087766961, 4.332708535959995], [-74.35323274121308, 4.33795428196764], [-74.35006695085524, 4.346542371533232], [-74.3550484150951, 4.3508131688485605], [-74.36035576951845, 4.346728058876295]]], "type": "Polygon"}, "id": "2", "properties": {"comuna": "Comuna Oriental", "nombre": "Comuna Oriental", "personas": 126}, "type": "Feature"}, {"bbox": [-74.37478804909121, 4.340646774618392, -74.35975054489138, 4.346960167990474], "geometry": {"coordinates": [[[-74.37292581946889, 4.34552109032883], [-74.37478804909121, 4.341250263033459], [-74.36463889764977, 4.340646774618392], [-74.35975054489138, 4.343153569488649], [-74.3603092137777, 4.346960167990474], [-74.37292581946889, 4.34552109032883]]], "type": "Polygon"}, "id": "3", "properties": {"comuna": "Comuna Centro", "nombre": "Comuna Centro", "personas": 94}, "type": "Feature"}, {"bbox": [-74.39314075794994, 4.32140421907711, -74.36425393547275, 4.359604961521541], "geometry": {"coordinates": [[[-74.39314075794994, 4.352130083171133], [-74.37838379534091, 4.321844336875486], [-74.36425393547275, 4.32140421907711], [-74.370626405797, 4.329590005484377], [-74.37069474016502, 4.33752252318979], [-74.36472523543765, 4.340397608255799], [-74.37495287702625, 4.341080076302518], [-74.37289291442288, 4.345395860329944], [-74.37351359883628, 4.351845278700708], [-74.3762677909431, 4.359604961521541], [-74.39314075794994, 4.352130083171133]]], "type": "Polygon"}, "id": "4", "properties": {"comuna": "Comuna Occidental", "nombre": "Comuna Occidental", "personas": 93}, "type": "Feature"}, {"bbox": [-74.41862156890129, 4.3216610327478975, -74.37867602099682, 4.337831821705947], "geometry": {"coordinates": [[[-74.38480596454414, 4.3348981636507204], [-74.39891977465692, 4.337831821705947], [-74.4007377722229, 4.331789165792799], [-74.41862156890129, 4.328195881729144], [-74.41727199354463, 4.32401977776739], [-74.39313947602705, 4.327801013239011], [-74.37867602099682, 4.3216610327478975], [-74.38041463728365, 4.3262460792683015], [-74.38480596454414, 4.3348981636507204]]], "type": "Polygon"}, "id": "5", "properties": {"comuna": "Comuna Sur Occidental", "nombre": "Comuna Sur Occidental", "personas": 136}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_f09402fd94c4cc5ca4224e80619790da.addTo(choropleth_95d9e63db38640726dd0fd904edd30c7);
+        
+    
+    var color_map_7f135a8d2d22dd253731abeb81329bed = {};
+
+    
+    color_map_7f135a8d2d22dd253731abeb81329bed.color = d3.scale.threshold()
+              .domain([60.0, 60.170340681362724, 60.34068136272545, 60.51102204408818, 60.6813627254509, 60.85170340681363, 61.02204408817635, 61.192384769539075, 61.362725450901806, 61.53306613226453, 61.703406813627254, 61.87374749498998, 62.0440881763527, 62.21442885771543, 62.38476953907816, 62.55511022044088, 62.725450901803605, 62.895791583166336, 63.06613226452906, 63.236472945891784, 63.40681362725451, 63.57715430861723, 63.74749498997996, 63.91783567134269, 64.0881763527054, 64.25851703406813, 64.42885771543087, 64.59919839679358, 64.76953907815631, 64.93987975951904, 65.11022044088176, 65.28056112224449, 65.45090180360721, 65.62124248496994, 65.79158316633267, 65.96192384769539, 66.13226452905812, 66.30260521042084, 66.47294589178357, 66.6432865731463, 66.81362725450902, 66.98396793587175, 67.15430861723446, 67.3246492985972, 67.49498997995993, 67.66533066132264, 67.83567134268537, 68.00601202404809, 68.17635270541082, 68.34669338677355, 68.51703406813627, 68.687374749499, 68.85771543086173, 69.02805611222445, 69.19839679358718, 69.3687374749499, 69.53907815631263, 69.70941883767534, 69.87975951903807, 70.0501002004008, 70.22044088176352, 70.39078156312625, 70.56112224448898, 70.7314629258517, 70.90180360721443, 71.07214428857715, 71.24248496993988, 71.4128256513026, 71.58316633266533, 71.75350701402806, 71.92384769539078, 72.09418837675351, 72.26452905811624, 72.43486973947896, 72.60521042084169, 72.7755511022044, 72.94589178356713, 73.11623246492987, 73.28657314629258, 73.45691382765531, 73.62725450901803, 73.79759519038076, 73.96793587174349, 74.13827655310621, 74.30861723446894, 74.47895791583167, 74.64929859719439, 74.81963927855712, 74.98997995991984, 75.16032064128257, 75.33066132264528, 75.50100200400801, 75.67134268537075, 75.84168336673346, 76.0120240480962, 76.18236472945893, 76.35270541082164, 76.52304609218437, 76.69338677354709, 76.86372745490982, 77.03406813627254, 77.20440881763527, 77.374749498998, 77.54509018036072, 77.71543086172345, 77.88577154308618, 78.0561122244489, 78.22645290581163, 78.39679358717434, 78.56713426853707, 78.73747494989979, 78.90781563126252, 79.07815631262525, 79.24849699398797, 79.4188376753507, 79.58917835671343, 79.75951903807615, 79.92985971943888, 80.10020040080161, 80.27054108216433, 80.44088176352706, 80.61122244488978, 80.78156312625251, 80.95190380761522, 81.12224448897796, 81.29258517034069, 81.4629258517034, 81.63326653306613, 81.80360721442887, 81.97394789579158, 82.14428857715431, 82.31462925851703, 82.48496993987976, 82.65531062124248, 82.82565130260521, 82.99599198396794, 83.16633266533066, 83.33667334669339, 83.50701402805612, 83.67735470941884, 83.84769539078157, 84.01803607214428, 84.18837675350701, 84.35871743486973, 84.52905811623246, 84.6993987975952, 84.86973947895791, 85.04008016032064, 85.21042084168337, 85.38076152304609, 85.55110220440882, 85.72144288577155, 85.89178356713427, 86.06212424849699, 86.23246492985972, 86.40280561122245, 86.57314629258516, 86.7434869739479, 86.91382765531063, 87.08416833667334, 87.25450901803607, 87.4248496993988, 87.59519038076152, 87.76553106212425, 87.93587174348697, 88.1062124248497, 88.27655310621242, 88.44689378757515, 88.61723446893788, 88.7875751503006, 88.95791583166333, 89.12825651302606, 89.29859719438878, 89.46893787575151, 89.63927855711422, 89.80961923847696, 89.97995991983967, 90.1503006012024, 90.32064128256513, 90.49098196392785, 90.66132264529058, 90.83166332665331, 91.00200400801603, 91.17234468937876, 91.34268537074148, 91.51302605210421, 91.68336673346693, 91.85370741482966, 92.02404809619239, 92.1943887775551, 92.36472945891784, 92.53507014028057, 92.70541082164328, 92.87575150300601, 93.04609218436875, 93.21643286573146, 93.38677354709418, 93.55711422845691, 93.72745490981964, 93.89779559118236, 94.06813627254509, 94.23847695390782, 94.40881763527054, 94.57915831663327, 94.749498997996, 94.91983967935872, 95.09018036072143, 95.26052104208418, 95.4308617234469, 95.60120240480961, 95.77154308617234, 95.94188376753507, 96.11222444889779, 96.28256513026052, 96.45290581162325, 96.62324649298597, 96.79358717434869, 96.96392785571143, 97.13426853707415, 97.30460921843687, 97.4749498997996, 97.64529058116233, 97.81563126252505, 97.98597194388778, 98.15631262525051, 98.32665330661322, 98.49699398797596, 98.66733466933869, 98.8376753507014, 99.00801603206412, 99.17835671342685, 99.34869739478958, 99.5190380761523, 99.68937875751503, 99.85971943887776, 100.03006012024048, 100.20040080160321, 100.37074148296594, 100.54108216432866, 100.71142284569137, 100.88176352705412, 101.05210420841684, 101.22244488977955, 101.39278557114228, 101.56312625250501, 101.73346693386773, 101.90380761523046, 102.0741482965932, 102.24448897795591, 102.41482965931863, 102.58517034068137, 102.75551102204409, 102.9258517034068, 103.09619238476954, 103.26653306613227, 103.43687374749499, 103.60721442885772, 103.77755511022045, 103.94789579158316, 104.11823647294588, 104.28857715430863, 104.45891783567134, 104.62925851703406, 104.79959919839679, 104.96993987975952, 105.14028056112224, 105.31062124248497, 105.4809619238477, 105.65130260521042, 105.82164328657315, 105.99198396793588, 106.1623246492986, 106.33266533066131, 106.50300601202404, 106.67334669338678, 106.84368737474949, 107.01402805611222, 107.18436873747495, 107.35470941883767, 107.5250501002004, 107.69539078156313, 107.86573146292585, 108.03607214428857, 108.20641282565131, 108.37675350701403, 108.54709418837675, 108.71743486973948, 108.88777555110221, 109.05811623246493, 109.22845691382766, 109.39879759519039, 109.5691382765531, 109.73947895791582, 109.90981963927857, 110.08016032064128, 110.250501002004, 110.42084168336673, 110.59118236472946, 110.76152304609218, 110.93186372745491, 111.10220440881764, 111.27254509018036, 111.44288577154309, 111.61322645290582, 111.78356713426854, 111.95390781563125, 112.12424849699399, 112.29458917835672, 112.46492985971943, 112.63527054108216, 112.8056112224449, 112.97595190380761, 113.14629258517034, 113.31663326653307, 113.48697394789579, 113.65731462925851, 113.82765531062124, 113.99799599198397, 114.16833667334669, 114.33867735470942, 114.50901803607215, 114.67935871743487, 114.8496993987976, 115.02004008016033, 115.19038076152304, 115.36072144288576, 115.5310621242485, 115.70140280561122, 115.87174348697394, 116.04208416833667, 116.2124248496994, 116.38276553106212, 116.55310621242485, 116.72344689378758, 116.8937875751503, 117.06412825651302, 117.23446893787576, 117.40480961923848, 117.5751503006012, 117.74549098196393, 117.91583166332666, 118.08617234468937, 118.2565130260521, 118.42685370741484, 118.59719438877755, 118.76753507014028, 118.93787575150301, 119.10821643286573, 119.27855711422845, 119.44889779559118, 119.61923847695391, 119.78957915831663, 119.95991983967936, 120.13026052104209, 120.3006012024048, 120.47094188376754, 120.64128256513027, 120.81162324649299, 120.9819639278557, 121.15230460921845, 121.32264529058116, 121.49298597194388, 121.66332665330661, 121.83366733466934, 122.00400801603206, 122.17434869739479, 122.34468937875752, 122.51503006012024, 122.68537074148296, 122.8557114228457, 123.02605210420842, 123.19639278557113, 123.36673346693387, 123.5370741482966, 123.70741482965931, 123.87775551102204, 124.04809619238478, 124.21843687374749, 124.38877755511022, 124.55911823647294, 124.72945891783567, 124.8997995991984, 125.07014028056112, 125.24048096192385, 125.41082164328657, 125.5811623246493, 125.75150300601203, 125.92184368737475, 126.09218436873748, 126.2625250501002, 126.43286573146293, 126.60320641282566, 126.77354709418837, 126.9438877755511, 127.11422845691382, 127.28456913827655, 127.45490981963928, 127.625250501002, 127.79559118236473, 127.96593186372745, 128.13627254509018, 128.3066132264529, 128.47695390781564, 128.64729458917836, 128.81763527054107, 128.98797595190382, 129.15831663326654, 129.32865731462925, 129.498997995992, 129.66933867735472, 129.83967935871743, 130.01002004008018, 130.18036072144287, 130.3507014028056, 130.52104208416836, 130.69138276553105, 130.8617234468938, 131.0320641282565, 131.20240480961922, 131.37274549098197, 131.5430861723447, 131.7134268537074, 131.88376753507015, 132.05410821643287, 132.22444889779558, 132.39478957915833, 132.56513026052104, 132.73547094188376, 132.9058116232465, 133.07615230460922, 133.24649298597194, 133.41683366733469, 133.58717434869737, 133.75751503006012, 133.92785571142286, 134.09819639278555, 134.2685370741483, 134.43887775551102, 134.60921843687373, 134.77955911823648, 134.9498997995992, 135.1202404809619, 135.29058116232466, 135.46092184368737, 135.6312625250501, 135.80160320641284, 135.97194388777555, 136.14228456913827, 136.31262525050101, 136.48296593186373, 136.65330661322645, 136.8236472945892, 136.9939879759519, 137.16432865731463, 137.33466933867737, 137.50501002004006, 137.6753507014028, 137.84569138276555, 138.01603206412824, 138.18637274549098, 138.3567134268537, 138.52705410821642, 138.69739478957916, 138.86773547094188, 139.0380761523046, 139.20841683366734, 139.37875751503006, 139.54909819639278, 139.71943887775552, 139.88977955911824, 140.06012024048096, 140.2304609218437, 140.40080160320642, 140.57114228456913, 140.74148296593188, 140.91182364729457, 141.0821643286573, 141.25250501002006, 141.42284569138275, 141.5931863727455, 141.76352705410824, 141.93386773547093, 142.10420841683367, 142.2745490981964, 142.4448897795591, 142.61523046092185, 142.78557114228457, 142.95591182364728, 143.12625250501003, 143.29659318637275, 143.46693386773546, 143.6372745490982, 143.80761523046093, 143.97795591182364, 144.1482965931864, 144.3186372745491, 144.48897795591182, 144.65931863727457, 144.82965931863725, 145.0])
+              .range(['#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#2b83baff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#abdda4ff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#ffffbfff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#fdae61ff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff', '#d7191cff']);
+    
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.x = d3.scale.linear()
+              .domain([60.0, 145.0])
+              .range([0, 450 - 50]);
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.legend = L.control({position: 'topright'});
+    color_map_7f135a8d2d22dd253731abeb81329bed.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_7f135a8d2d22dd253731abeb81329bed.legend.addTo(map_d8ba4da8a744d011924cf736076de27d);
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.xAxis = d3.svg.axis()
+        .scale(color_map_7f135a8d2d22dd253731abeb81329bed.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([60.0, 75.0, 90.0, 105.0, 120.0, 145.0]);
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.g = color_map_7f135a8d2d22dd253731abeb81329bed.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.g.selectAll("rect")
+        .data(color_map_7f135a8d2d22dd253731abeb81329bed.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_7f135a8d2d22dd253731abeb81329bed.x(color_map_7f135a8d2d22dd253731abeb81329bed.color.domain()[i - 1]) : color_map_7f135a8d2d22dd253731abeb81329bed.x.range()[0],
+            x1: i < color_map_7f135a8d2d22dd253731abeb81329bed.color.domain().length ? color_map_7f135a8d2d22dd253731abeb81329bed.x(color_map_7f135a8d2d22dd253731abeb81329bed.color.domain()[i]) : color_map_7f135a8d2d22dd253731abeb81329bed.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_7f135a8d2d22dd253731abeb81329bed.g.call(color_map_7f135a8d2d22dd253731abeb81329bed.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Personas por Comuna");
+    
+            choropleth_95d9e63db38640726dd0fd904edd30c7.addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+
+        function geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c = L.geoJson(null, {
+                onEachFeature: geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c_onEachFeature,
+            
+            ...{
+}
+        });
+
+        function geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c_add (data) {
+            geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c
+                .addData(data);
+        }
+            geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c_add({"bbox": [-74.41862156890129, 4.321295630266249, -74.35006695085524, 4.359604961521541], "features": [{"bbox": [-74.37357759983668, 4.34556751223154, -74.35490874787331, 4.357172898217016], "geometry": {"coordinates": [[[-74.37357759983668, 4.352112971920889], [-74.37283270798785, 4.34556751223154], [-74.36040232525916, 4.346913746173513], [-74.35490874787331, 4.350859590426111], [-74.35718997916054, 4.357172898217016], [-74.37357759983668, 4.352112971920889]]], "type": "Polygon"}, "id": "0", "properties": {"comuna": "Comuna Norte", "nombre": "Comuna Norte", "personas": 112}, "type": "Feature"}, {"bbox": [-74.37088070131847, 4.321295630266249, -74.35314578159127, 4.3396974868599045], "geometry": {"coordinates": [[[-74.36616422000448, 4.3396974868599045], [-74.37088070131847, 4.337516525814479], [-74.37047045678024, 4.329269327941859], [-74.36447269675584, 4.321295630266249], [-74.35314578159127, 4.3262548331023964], [-74.35975674395245, 4.332847675184681], [-74.36616422000448, 4.3396974868599045]]], "type": "Polygon"}, "id": "1", "properties": {"comuna": "Comuna Sur Oriental", "nombre": "Comuna Sur Oriental", "personas": 72}, "type": "Feature"}, {"bbox": [-74.3661294015505, 4.332708535959995, -74.35006695085524, 4.3508131688485605], "geometry": {"coordinates": [[[-74.36035576951845, 4.346728058876295], [-74.35965815361334, 4.343216545807351], [-74.3661294015505, 4.339734884415307], [-74.35961087766961, 4.332708535959995], [-74.35323274121308, 4.33795428196764], [-74.35006695085524, 4.346542371533232], [-74.3550484150951, 4.3508131688485605], [-74.36035576951845, 4.346728058876295]]], "type": "Polygon"}, "id": "2", "properties": {"comuna": "Comuna Oriental", "nombre": "Comuna Oriental", "personas": 126}, "type": "Feature"}, {"bbox": [-74.37478804909121, 4.340646774618392, -74.35975054489138, 4.346960167990474], "geometry": {"coordinates": [[[-74.37292581946889, 4.34552109032883], [-74.37478804909121, 4.341250263033459], [-74.36463889764977, 4.340646774618392], [-74.35975054489138, 4.343153569488649], [-74.3603092137777, 4.346960167990474], [-74.37292581946889, 4.34552109032883]]], "type": "Polygon"}, "id": "3", "properties": {"comuna": "Comuna Centro", "nombre": "Comuna Centro", "personas": 94}, "type": "Feature"}, {"bbox": [-74.39314075794994, 4.32140421907711, -74.36425393547275, 4.359604961521541], "geometry": {"coordinates": [[[-74.39314075794994, 4.352130083171133], [-74.37838379534091, 4.321844336875486], [-74.36425393547275, 4.32140421907711], [-74.370626405797, 4.329590005484377], [-74.37069474016502, 4.33752252318979], [-74.36472523543765, 4.340397608255799], [-74.37495287702625, 4.341080076302518], [-74.37289291442288, 4.345395860329944], [-74.37351359883628, 4.351845278700708], [-74.3762677909431, 4.359604961521541], [-74.39314075794994, 4.352130083171133]]], "type": "Polygon"}, "id": "4", "properties": {"comuna": "Comuna Occidental", "nombre": "Comuna Occidental", "personas": 93}, "type": "Feature"}, {"bbox": [-74.41862156890129, 4.3216610327478975, -74.37867602099682, 4.337831821705947], "geometry": {"coordinates": [[[-74.38480596454414, 4.3348981636507204], [-74.39891977465692, 4.337831821705947], [-74.4007377722229, 4.331789165792799], [-74.41862156890129, 4.328195881729144], [-74.41727199354463, 4.32401977776739], [-74.39313947602705, 4.327801013239011], [-74.37867602099682, 4.3216610327478975], [-74.38041463728365, 4.3262460792683015], [-74.38480596454414, 4.3348981636507204]]], "type": "Polygon"}, "id": "5", "properties": {"comuna": "Comuna Sur Occidental", "nombre": "Comuna Sur Occidental", "personas": 136}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+    geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["comuna", "personas"];
+    let aliases = ["Comuna:", "Personas:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_fd4429b857ff4ecd3ee2ff96eb0f921c.addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var marker_e094cd4c32289428ef66cc3efc650230 = L.marker(
+                [4.350854390205229, -74.36429048073549],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_3b713484ffbfa83ecbc691590682fc50 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Norte\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_e094cd4c32289428ef66cc3efc650230.setIcon(div_icon_3b713484ffbfa83ecbc691590682fc50);
+            
+    
+            var marker_b2c07926f0cdb7f9cf4b466ecaebfdd2 = L.marker(
+                [4.330055043221552, -74.36376920232028],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_2223f16b08d9e97082385f781c542cdc = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Sur Oriental\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_b2c07926f0cdb7f9cf4b466ecaebfdd2.setIcon(div_icon_2223f16b08d9e97082385f781c542cdc);
+            
+    
+            var marker_e66adb0fbd43fca1ca93f66175868bce = L.marker(
+                [4.341718616397008, -74.35727222496385],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_01495844748265e2d4e5f36684889779 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Oriental\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_e66adb0fbd43fca1ca93f66175868bce.setIcon(div_icon_01495844748265e2d4e5f36684889779);
+            
+    
+            var marker_117df5d80615172c67507fc9bbaf5752 = L.marker(
+                [4.343647744301157, -74.36687710367025],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_2651c58c4ecd52f4fd5726f152eaab2e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Centro\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_117df5d80615172c67507fc9bbaf5752.setIcon(div_icon_2651c58c4ecd52f4fd5726f152eaab2e);
+            
+    
+            var marker_6f931bf5b902e192cbce54f38bc54cee = L.marker(
+                [4.340361284223238, -74.3788235254179],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_9cb5ad379bd7747724183d472a93e3cd = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Occidental\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_6f931bf5b902e192cbce54f38bc54cee.setIcon(div_icon_9cb5ad379bd7747724183d472a93e3cd);
+            
+    
+            var marker_c16604127a6ed7c9dbbe38c681ed13c5 = L.marker(
+                [4.329708896119215, -74.39635555249444],
+                {
+}
+            ).addTo(map_d8ba4da8a744d011924cf736076de27d);
+        
+    
+            var div_icon_8aeb014519a51f04b53b21343dfdf92f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:8pt; font-weight:bold; color:black; text-align:center;\"\u003e\n                     Comuna Sur Occidental\n                     \u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_c16604127a6ed7c9dbbe38c681ed13c5.setIcon(div_icon_8aeb014519a51f04b53b21343dfdf92f);
+            
+</script>
+</html>
